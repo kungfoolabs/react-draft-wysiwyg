@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import { getFirstIcon } from '../../../utils/toolbar';
 import { Dropdown, DropdownOption } from '../../../components/Dropdown';
@@ -52,7 +53,7 @@ export default class LayoutComponent extends Component {
     } = this.props;
     const { options, unordered, ordered, indent, outdent, className } = config;
     return (
-      <div className={classNames('rdw-list-wrapper', className)} aria-label="rdw-list-control">
+      <Button.Group>
         {options.indexOf('unordered') >= 0 && <Option
           value="unordered"
           onClick={this.toggleBlockType}
@@ -60,10 +61,7 @@ export default class LayoutComponent extends Component {
           active={listType === 'unordered'}
           title={unordered.title || translations['components.controls.list.unordered']}
         >
-          <img
-            src={unordered.icon}
-            alt=""
-          />
+          <Icon name="unordered list" />
         </Option>}
         {options.indexOf('ordered') >= 0 && <Option
           value="ordered"
@@ -72,10 +70,7 @@ export default class LayoutComponent extends Component {
           active={listType === 'ordered'}
           title={ordered.title || translations['components.controls.list.ordered']}
         >
-          <img
-            src={ordered.icon}
-            alt=""
-          />
+          <Icon name="ordered list" />
         </Option>}
         {options.indexOf('indent') >= 0 && <Option
           onClick={this.indent}
@@ -83,10 +78,7 @@ export default class LayoutComponent extends Component {
           className={classNames(indent.className)}
           title={indent.title || translations['components.controls.list.indent']}
         >
-          <img
-            src={indent.icon}
-            alt=""
-          />
+          <Icon name="indent" />
         </Option>}
         {options.indexOf('outdent') >= 0 && <Option
           onClick={this.outdent}
@@ -94,12 +86,9 @@ export default class LayoutComponent extends Component {
           className={classNames(outdent.className)}
           title={outdent.title || translations['components.controls.list.outdent']}
         >
-          <img
-            src={outdent.icon}
-            alt=""
-          />
+          <Icon name="outdent" />
         </Option>}
-      </div>
+      </Button.Group>
     );
   }
 

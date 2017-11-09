@@ -1,12 +1,14 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { getFirstIcon } from '../../../utils/toolbar';
+import {Button, Icon} from 'semantic-ui-react';
+
+import {getFirstIcon} from '../../../utils/toolbar';
 import Option from '../../../components/Option';
-import { Dropdown, DropdownOption } from '../../../components/Dropdown';
+import {Dropdown, DropdownOption} from '../../../components/Dropdown';
 
 import './styles.css';
 
@@ -25,7 +27,7 @@ export default class Inline extends Component {
   renderInFlatList(): Object {
     const { config, currentState, onChange, translations } = this.props;
     return (
-      <div className={classNames('rdw-inline-wrapper', config.className)} aria-label="rdw-inline-control">
+      <Button.Group>
         {
           config.options
             .map((style, index) =>
@@ -40,14 +42,12 @@ export default class Inline extends Component {
                 }
                 title={config[style].title || translations[`components.controls.inline.${style}`]}
               >
-                <img
-                  alt=""
-                  src={config[style].icon}
-                />
+                <Icon name={config[style].icon} />
               </Option>),
             )
         }
-      </div>
+      </Button.Group>
+
     );
   }
 
@@ -62,7 +62,7 @@ export default class Inline extends Component {
       onChange,
       translations,
     } = this.props;
-    const { className, dropdownClassName, title } = config;
+    const {className, dropdownClassName, title} = config;
     return (
       <Dropdown
         className={classNames('rdw-inline-dropdown', className)}
@@ -103,7 +103,7 @@ export default class Inline extends Component {
   }
 
   render(): Object {
-    const { config: { inDropdown } } = this.props;
+    const {config: {inDropdown}} = this.props;
     if (inDropdown) {
       return this.renderInDropDown();
     }

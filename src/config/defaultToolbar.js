@@ -1,8 +1,4 @@
-import bold from '../../images/bold.svg';
-import italic from '../../images/italic.svg';
-import underline from '../../images/underline.svg';
-import strikethrough from '../../images/strikethrough.svg';
-import monospace from '../../images/monospace.svg';
+
 import fontSize from '../../images/font-size.svg';
 import indent from '../../images/indent.svg';
 import outdent from '../../images/outdent.svg';
@@ -21,8 +17,6 @@ import embedded from '../../images/embedded.svg';
 import image from '../../images/image.svg';
 import undo from '../../images/undo.svg';
 import redo from '../../images/redo.svg';
-import subscript from '../../images/subscript.svg';
-import superscript from '../../images/superscript.svg';
 
 /**
 * This is default toolbar configuration,
@@ -36,13 +30,13 @@ export default {
     component: undefined,
     dropdownClassName: undefined,
     options: ['bold', 'italic', 'underline', 'strikethrough', 'monospace', 'superscript', 'subscript'],
-    bold: { icon: bold, className: undefined, title: undefined },
-    italic: { icon: italic, className: undefined, title: undefined },
-    underline: { icon: underline, className: undefined, title: undefined },
-    strikethrough: { icon: strikethrough, className: undefined, title: undefined },
-    monospace: { icon: monospace, className: undefined, title: undefined },
-    superscript: { icon: superscript, className: undefined, title: undefined },
-    subscript: { icon: subscript, className: undefined, title: undefined },
+    bold: { icon: 'bold', className: undefined, title: undefined },
+    italic: { icon: 'italic', className: undefined, title: undefined },
+    underline: { icon: 'underline', className: undefined, title: undefined },
+    strikethrough: { icon: 'strikethrough', className: undefined, title: undefined },
+    monospace: { icon: 'text cursor', className: undefined, title: undefined },
+    superscript: { icon: 'superscript', className: undefined, title: undefined },
+    subscript: { icon: 'subscript', className: undefined, title: undefined },
   },
   blockType: {
     inDropdown: true,

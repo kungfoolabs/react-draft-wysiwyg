@@ -1,8 +1,8 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import {Button, Popup} from 'semantic-ui-react';
 import './styles.css';
 
 export default class Option extends Component {
@@ -25,23 +25,23 @@ export default class Option extends Component {
   };
 
   render() {
-    const { children, className, activeClassName, active, disabled, title } = this.props;
-    return (
-      <div
-        className={classNames(
-          'rdw-option-wrapper',
-          className,
-          {
-            [`rdw-option-active ${activeClassName}`]: active,
-            'rdw-option-disabled': disabled,
-          },
-        )}
-        onClick={this.onClick}
-        aria-selected={active}
-        title={title}
-      >
+    const { children, active, disabled, title } = this.props;
+
+    const button = (
+      <Button active={active} onClick={this.onClick} disabled={disabled} icon>
         {children}
-      </div>
+      </Button>
+    )
+
+    if (!title) {
+      return button;
+    }
+
+    return (
+      <Popup
+        trigger={button}
+        content={title}
+      />
     );
   }
 }

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import { stopPropagation } from '../../../utils/common';
 import Option from '../../../components/Option';
@@ -139,10 +140,7 @@ class LayoutComponent extends Component {
           onClick={onExpandEvent}
           title={title || translations['components.controls.embedded.embedded']}
         >
-          <img
-            src={icon}
-            alt=""
-          />
+          <Icon name="embed" />
         </Option>
         {expanded ? this.rendeEmbeddedLinkModal() : undefined}
       </div>

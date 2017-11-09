@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import Option from '../../../components/Option';
 import { Dropdown, DropdownOption } from '../../../components/Dropdown';
@@ -23,13 +24,13 @@ export default class TextAlign extends Component {
 
   renderInFlatList(): Object {
     const {
-      config: { options, left, center, right, justify, className },
+      config: { options, left, center, right, justify },
       onChange,
       currentState: { textAlignment },
       translations,
     } = this.props;
     return (
-      <div className={classNames('rdw-text-align-wrapper', className)} aria-label="rdw-textalign-control">
+      <Button.Group>
         {options.indexOf('left') >= 0 && <Option
           value="left"
           className={classNames(left.className)}
@@ -37,10 +38,7 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={left.title || translations['components.controls.textalign.left']}
         >
-          <img
-            src={left.icon}
-            alt=""
-          />
+          <Icon name='align left' />
         </Option>}
         {options.indexOf('center') >= 0 && <Option
           value="center"
@@ -49,10 +47,7 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={center.title || translations['components.controls.textalign.center']}
         >
-          <img
-            src={center.icon}
-            alt=""
-          />
+          <Icon name='align center' />
         </Option>}
         {options.indexOf('right') >= 0 && <Option
           value="right"
@@ -61,10 +56,7 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={right.title || translations['components.controls.textalign.right']}
         >
-          <img
-            src={right.icon}
-            alt=""
-          />
+          <Icon name='align right' />
         </Option>}
         {options.indexOf('justify') >= 0 && <Option
           value="justify"
@@ -73,12 +65,9 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={justify.title || translations['components.controls.textalign.justify']}
         >
-          <img
-            src={justify.icon}
-            alt=""
-          />
+          <Icon name='align justify' />
         </Option>}
-      </div>
+      </Button.Group>
     );
   }
 

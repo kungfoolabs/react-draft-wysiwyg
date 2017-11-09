@@ -3,25 +3,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import Option from '../../../components/Option';
-import './styles.css';
 
 const RemoveComponent = ({ config, onChange, translations }) => {
-  const { icon, className, title } = config;
+  const { className, title } = config;
   return (
-    <div className="rdw-remove-wrapper" aria-label="rdw-remove-control">
+    <Button.Group>
       <Option
         className={classNames(className)}
         onClick={onChange}
         title={title || translations['components.controls.remove.remove']}
       >
-        <img
-          src={icon}
-          alt=""
-        />
+        <Icon name='erase' />
       </Option>
-    </div>
+    </Button.Group>
   );
 };
 

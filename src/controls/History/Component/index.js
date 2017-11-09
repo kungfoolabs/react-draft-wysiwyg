@@ -3,11 +3,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import { Dropdown, DropdownOption } from '../../../components/Dropdown';
-import './styles.css';
 
 export default class History extends Component {
   static propTypes = {
@@ -82,12 +82,12 @@ export default class History extends Component {
 
   renderInFlatList(): Object {
     const {
-      config: { options, undo, redo, className },
+      config: { options, undo, redo },
       currentState: { undoDisabled, redoDisabled },
       translations,
     } = this.props;
     return (
-      <div className={classNames('rdw-history-wrapper', className)} aria-label="rdw-history-control">
+      <Button.Group>
         {options.indexOf('undo') >= 0 && <Option
           value="undo"
           onClick={this.onChange}
@@ -95,10 +95,7 @@ export default class History extends Component {
           disabled={undoDisabled}
           title={undo.title || translations['components.controls.history.undo']}
         >
-          <img
-            src={undo.icon}
-            alt=""
-          />
+          <Icon name="undo" />
         </Option>}
         {options.indexOf('redo') >= 0 && <Option
           value="redo"
@@ -107,12 +104,9 @@ export default class History extends Component {
           disabled={redoDisabled}
           title={redo.title || translations['components.controls.history.redo']}
         >
-          <img
-            src={redo.icon}
-            alt=""
-          />
+          <Icon name="repeat" />
         </Option>}
-      </div>
+      </Button.Group>
     );
   }
 

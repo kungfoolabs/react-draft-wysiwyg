@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Button, Icon } from 'semantic-ui-react';
 
 import { stopPropagation } from '../../../utils/common';
 import Option from '../../../components/Option';
@@ -49,25 +50,17 @@ class LayoutComponent extends Component {
       translations,
     } = this.props;
     return (
-      <div
-        className="rdw-emoji-wrapper"
-        aria-haspopup="true"
-        aria-label="rdw-emoji-control"
-        aria-expanded={expanded}
-        title={title || translations['components.controls.emoji.emoji']}
-      >
+      <Button.Group>
         <Option
           className={classNames(className)}
           value="unordered-list-item"
           onClick={onExpandEvent}
+          title={title || translations['components.controls.emoji.emoji']}
         >
-          <img
-            src={icon}
-            alt=""
-          />
+          <Icon name="smile" />
         </Option>
         {expanded ? this.renderEmojiModal() : undefined}
-      </div>
+      </Button.Group>
     );
   }
 }
